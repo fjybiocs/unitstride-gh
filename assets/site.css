@@ -14,6 +14,14 @@
   --us-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 
+/* ---------- 手机上整页只能上下滑（全站 + 文章页） ---------- */
+/* 文章里的宽表格（含不可断的长代码名）在窄屏下自身横向滚动，不撑宽整页 */
+@media (max-width:980px){.layout main table{display:block;width:max-content;max-width:100%;overflow-x:auto}}
+/* 长英文 / 数字 / URL 必要时断行（不作用于表格单元格：那里要保持列宽、交给表格自身滚动） */
+.layout main :is(p,li,h1,h2,h3,figcaption,blockquote){overflow-wrap:anywhere}
+/* 兜底：用 clip 不用 hidden，hidden 会让 html/body 成为滚动容器、破坏目录的 position:sticky */
+html,body{overflow-x:clip}
+
 /* ---------- 顶栏（全站 + 文章页） ---------- */
 .us-top{max-width:var(--us-w,1180px);margin:0 auto;display:flex;align-items:center;gap:14px;min-height:52px;
   border-bottom:1px solid var(--us-line);font:14px/1.4 var(--us-sans);color:var(--us-ink2);flex-wrap:wrap}
