@@ -19,7 +19,7 @@
 </main>
 <script>
 (function(){
-var PAGES=[{"path": "/", "title": "首页"}, {"path": "/p/ai-infra/", "title": "AI Infra"}, {"path": "/p/ai-infra/quantization/", "title": "从推理加速视角看量化（系列）"}, {"path": "/p/ai-infra/quantization/basics/", "title": "量化在推理里省的是什么：容量、带宽和算力"}];
+var PAGES=[{"path": "/", "title": "首页"}, {"path": "/t/ai-infra/", "title": "AI Infra（主题）", "alias": ["/p/ai-infra/"]}, {"path": "/p/1/", "title": "量化在推理里省的是什么：容量、带宽和算力", "alias": ["/p/ai-infra/quantization/", "/p/ai-infra/quantization/basics/"]}];
 var cur=location.pathname;try{cur=decodeURIComponent(cur)}catch(e){}
 document.getElementById('us-cur').textContent=cur;
 function norm(p){return p.toLowerCase().replace(/index\.html?$/,'').replace(/\.html?$/,'').replace(/\/+$/,'')}
@@ -27,12 +27,15 @@ function segs(p){return norm(p).split('/').filter(Boolean)}
 function lev(a,b){var m=a.length,n=b.length,d=[],i,j;for(j=0;j<=n;j++)d[j]=j;for(i=1;i<=m;i++){var p=d[0];d[0]=i;for(j=1;j<=n;j++){var t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]==b[j-1]?0:1));p=t}}return d[n]}
 function sim(a,b){if(!a&&!b)return 1;return 1-lev(a,b)/Math.max(a.length,b.length)}
 var cs=segs(cur),cn=norm(cur);
-var ranked=PAGES.filter(function(p){return p.path!=='/'}).map(function(p){
-  var ps=segs(p.path),s=0;
+function score(path){
+  var ps=segs(path),s=0;
   cs.forEach(function(c){var best=0;ps.forEach(function(q){best=Math.max(best,sim(c,q))});s+=best});
-  var seg=cs.length?s/cs.length:0,whole=sim(cn,norm(p.path));
+  var seg=cs.length?s/cs.length:0,whole=sim(cn,norm(path));
   var last=cs.length&&ps.length?sim(cs[cs.length-1],ps[ps.length-1]):0;
-  return {p:p,score:0.45*seg+0.35*whole+0.2*last};
+  return 0.45*seg+0.35*whole+0.2*last;
+}
+var ranked=PAGES.filter(function(p){return p.path!=='/'}).map(function(p){
+  return {p:p,score:Math.max.apply(null,[p.path].concat(p.alias||[]).map(score))};
 }).filter(function(x){return x.score>0.3}).sort(function(a,b){return b.score-a.score||a.p.path.length-b.p.path.length}).slice(0,3);
 if(!ranked.length)return;
 var ul=document.getElementById('us-sugg');

@@ -5,6 +5,8 @@
 @font-face{font-family:"IBM Plex Mono";font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/plex-mono-400.woff2) format("woff2")}
 @font-face{font-family:"JetBrains Mono";font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/jetbrains-mono-400.woff2) format("woff2")}
 @font-face{font-family:"JetBrains Mono";font-weight:600;font-style:normal;font-display:swap;src:url(/fonts/jetbrains-mono-600.woff2) format("woff2")}
+/* 首页 logo 下"日拱一卒"：Noto Sans CJK SC Regular 子集（仅这 4 个字），缺字回落系统中文字体 */
+@font-face{font-family:"US Tagline";font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/noto-sans-sc-tagline.woff2) format("woff2")}
 
 :root{
   --us-ink:#111;--us-ink2:#555;--us-ink3:#8a8a8a;--us-line:#e7e7e7;--us-blue:#2b59ff;--us-bg:#fff;
@@ -35,13 +37,22 @@
 .us-nav a:hover .us-v{color:var(--us-blue)}
 .us-nav .us-off{color:var(--us-ink3)}
 .us-nav .us-next{text-align:right}
-.us-series{margin-top:14px;color:var(--us-ink2)}
-.us-series a{color:var(--us-ink);text-decoration:none;border-bottom:1px solid var(--us-line)}
-.us-series a:hover{color:var(--us-blue);border-color:var(--us-blue)}
+.us-topics{margin-top:14px;color:var(--us-ink2)}
+.us-topics a{color:var(--us-ink);text-decoration:none;border-bottom:1px solid var(--us-line)}
+.us-topics a:hover{color:var(--us-blue);border-color:var(--us-blue)}
 .us-small{margin-top:28px;font:12px/1.4 var(--us-mono);color:var(--us-ink3)}
+/* 文章标题下日期行 + 末尾修订记录 */
+.us-date{font:13.5px/1.6 var(--us-sans);color:#7C8797;margin:-4px 0 14px;letter-spacing:.02em}
+.us-log{margin-top:16px;border:1px solid var(--us-line);border-radius:8px;background:#fff;padding:0 14px}
+.us-log > summary{cursor:pointer;padding:9px 0;color:var(--us-ink2);font-size:13.5px;list-style-position:inside}
+.us-log > summary:hover{color:var(--us-blue)}
+.us-log[open] > summary{border-bottom:1px solid var(--us-line)}
+.us-log ol{list-style:none;margin:0;padding:8px 0 10px}
+.us-log li{display:flex;gap:14px;padding:3px 0;color:var(--us-ink);font-size:14px}
+.us-log time{font:13px/1.75 var(--us-mono);color:var(--us-ink3);flex:none}
 @media (max-width:520px){.us-nav{grid-template-columns:1fr}.us-nav .us-next{text-align:left}}
 
-/* ---------- 站点页（首页 / 专栏 / 系列 / 404） ---------- */
+/* ---------- 站点页（首页 / 主题 / 404） ---------- */
 .us-page{margin:0;background:var(--us-bg);color:var(--us-ink);font:16px/1.75 var(--us-sans);padding:0 16px;--us-w:720px;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .us-page *{box-sizing:border-box}
