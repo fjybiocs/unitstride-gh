@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <rect width="640" height="640" fill="#fff"/>
+  <g transform="translate(202 226.5)">
+    <rect x="0" width="52" height="52" rx="6" fill="#111" fill-opacity="0.14"/>
+    <rect x="61" width="52" height="52" rx="6" fill="#111" fill-opacity="0.34"/>
+    <rect x="122" width="52" height="52" rx="6" fill="#111" fill-opacity="0.62"/>
+    <rect x="183" width="52" height="52" rx="6" fill="#2b59ff"/>
+  </g>
+  <text x="171.53" y="393" dominant-baseline="text-after-edge" font-family="'IBM Plex Sans', sans-serif" font-size="68" font-weight="600" letter-spacing="-2.38" fill="#111" textLength="296.92" lengthAdjust="spacingAndGlyphs">unit stride</text>
+  <text x="248.35" y="413.5" dominant-baseline="text-after-edge" font-family="'IBM Plex Mono', monospace" font-size="16" letter-spacing="0.64" fill="#555" textLength="143.27" lengthAdjust="spacingAndGlyphs">unitstride.com</text>
+</svg>
