@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>页面不存在 · unitstride</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="robots" content="noindex">
+</head>
+<body class="us-page">
+<header class="us-top"><a class="us-brand" href="/" aria-label="unitstride 首页"><svg viewBox="0 0 53 12" aria-hidden="true"><rect x="0" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".14"/><rect x="14" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".34"/><rect x="28" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".62"/><rect x="42" width="11" height="11" y=".5" rx="2" fill="#2b59ff"/></svg><span>unitstride</span></a></header>
+<main class="us-main">
+<div class="us-code">404</div>
+<h1>页面不存在或已移动</h1>
+<p class="us-lede">没有找到 <span class="us-path" id="us-cur"></span>。</p>
+<div id="us-sugg-wrap" hidden><h2 class="us-h">你是不是要找</h2><ul class="us-list" id="us-sugg"></ul></div>
+<a class="us-btn" href="/">回首页</a>
+</main>
+<script>
+(function(){
+var PAGES=[{"path": "/", "title": "首页"}, {"path": "/p/ai-infra/", "title": "AI Infra"}, {"path": "/p/ai-infra/quantization/", "title": "从推理加速视角看量化（系列）"}, {"path": "/p/ai-infra/quantization/basics/", "title": "量化在推理里省的是什么：容量、带宽和算力"}];
+var cur=location.pathname;try{cur=decodeURIComponent(cur)}catch(e){}
+document.getElementById('us-cur').textContent=cur;
+function norm(p){return p.toLowerCase().replace(/index\.html?$/,'').replace(/\.html?$/,'').replace(/\/+$/,'')}
+function segs(p){return norm(p).split('/').filter(Boolean)}
+function lev(a,b){var m=a.length,n=b.length,d=[],i,j;for(j=0;j<=n;j++)d[j]=j;for(i=1;i<=m;i++){var p=d[0];d[0]=i;for(j=1;j<=n;j++){var t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,p+(a[i-1]==b[j-1]?0:1));p=t}}return d[n]}
+function sim(a,b){if(!a&&!b)return 1;return 1-lev(a,b)/Math.max(a.length,b.length)}
+var cs=segs(cur),cn=norm(cur);
+var ranked=PAGES.filter(function(p){return p.path!=='/'}).map(function(p){
+  var ps=segs(p.path),s=0;
+  cs.forEach(function(c){var best=0;ps.forEach(function(q){best=Math.max(best,sim(c,q))});s+=best});
+  var seg=cs.length?s/cs.length:0,whole=sim(cn,norm(p.path));
+  var last=cs.length&&ps.length?sim(cs[cs.length-1],ps[ps.length-1]):0;
+  return {p:p,score:0.45*seg+0.35*whole+0.2*last};
+}).filter(function(x){return x.score>0.3}).sort(function(a,b){return b.score-a.score||a.p.path.length-b.p.path.length}).slice(0,3);
+if(!ranked.length)return;
+var ul=document.getElementById('us-sugg');
+ranked.forEach(function(x){var li=document.createElement('li'),a=document.createElement('a');a.className='us-item us-plain';a.href=x.p.path;
+  var t=document.createElement('span');t.className='us-t';t.textContent=x.p.title;
+  var m=document.createElement('span');m.className='us-m';m.textContent=x.p.path;
+  a.appendChild(t);a.appendChild(m);li.appendChild(a);ul.appendChild(li)});
+document.getElementById('us-sugg-wrap').hidden=false;
+})();
+</script>
+<footer class="us-foot"><a href="/">unitstride.com</a></footer>
+</body>
+</html>

@@ -1,50 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>unit stride</title>
+<meta name="description" content="这里放我写的技术文章，目前主要写 AI Infra。">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
 <link rel="preload" href="/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:"IBM Plex Sans";font-weight:600;font-style:normal;font-display:block;src:url(/fonts/plex-sans-600.woff2) format("woff2")}
-@font-face{font-family:"IBM Plex Mono";font-weight:400;font-style:normal;font-display:block;src:url(/fonts/plex-mono-400.woff2) format("woff2")}
-html,body{margin:0;height:100%;background:#fff}
-body{display:flex;align-items:center;justify-content:center}
-svg{width:min(90vw,90vh,640px);height:auto;display:block}
-
-/* load animation: four unit strides, then the wordmark.
-   fill-mode backwards (not both): once finished the styles drop away, so the
-   final frame is pixel-identical to the static logo (no lingering composited layer). */
-.b,.w{transform-box:fill-box;transform-origin:center;animation-fill-mode:backwards}
-.b{animation:step 260ms cubic-bezier(.2,.7,.2,1) backwards}
-.b2{animation-delay:110ms}
-.b3{animation-delay:220ms}
-.b4{animation:step-arrive 480ms linear 330ms backwards}
-.w{animation:rise 320ms cubic-bezier(.2,.7,.2,1) 600ms backwards}
-.w2{animation-delay:680ms}
-@keyframes step{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
-@keyframes step-arrive{
+.us-lb,.us-lw{transform-box:fill-box;transform-origin:center;animation-fill-mode:backwards}
+.us-lb{animation:us-step 260ms cubic-bezier(.2,.7,.2,1) backwards}
+.us-lb2{animation-delay:110ms}
+.us-lb3{animation-delay:220ms}
+.us-lb4{animation:us-arrive 480ms linear 330ms backwards}
+.us-lw{animation:us-rise 320ms cubic-bezier(.2,.7,.2,1) 600ms backwards}
+.us-lw2{animation-delay:680ms}
+@keyframes us-step{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+@keyframes us-arrive{
   0%{opacity:0;transform:translateX(-12px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}
   54%{opacity:1;transform:translateX(0) scale(1);animation-timing-function:ease-out}
   77%{transform:translateX(0) scale(1.08);animation-timing-function:ease-in-out}
   100%{opacity:1;transform:translateX(0) scale(1)}
 }
-@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.b,.w{animation:none}}
+@keyframes us-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.us-lb,.us-lw{animation:none}}
 </style>
 </head>
-<body>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="unit stride">
+<body class="us-page us-home">
+<main class="us-main">
+<div class="us-hero"><svg xmlns="http://www.w3.org/2000/svg" viewBox="160 206 320 222" role="img" aria-label="unit stride">
   <g transform="translate(202 226.5)">
-    <rect class="b b1" x="0" width="52" height="52" rx="6" fill="#111" fill-opacity="0.14"/>
-    <rect class="b b2" x="61" width="52" height="52" rx="6" fill="#111" fill-opacity="0.34"/>
-    <rect class="b b3" x="122" width="52" height="52" rx="6" fill="#111" fill-opacity="0.62"/>
-    <rect class="b b4" x="183" width="52" height="52" rx="6" fill="#2b59ff"/>
+    <rect class="us-lb us-lb1" x="0" width="52" height="52" rx="6" fill="#111" fill-opacity="0.14"/>
+    <rect class="us-lb us-lb2" x="61" width="52" height="52" rx="6" fill="#111" fill-opacity="0.34"/>
+    <rect class="us-lb us-lb3" x="122" width="52" height="52" rx="6" fill="#111" fill-opacity="0.62"/>
+    <rect class="us-lb us-lb4" x="183" width="52" height="52" rx="6" fill="#2b59ff"/>
   </g>
-  <text class="w w1" x="171.53" y="393" dominant-baseline="text-after-edge" font-family="'IBM Plex Sans', sans-serif" font-size="68" font-weight="600" letter-spacing="-2.38" fill="#111" textLength="296.92" lengthAdjust="spacingAndGlyphs">unit stride</text>
-  <text class="w w2" x="248.35" y="413.5" dominant-baseline="text-after-edge" font-family="'IBM Plex Mono', monospace" font-size="16" letter-spacing="0.64" fill="#555" textLength="143.27" lengthAdjust="spacingAndGlyphs">unitstride.com</text>
-</svg>
+  <text class="us-lw us-lw1" x="171.53" y="393" dominant-baseline="text-after-edge" font-family="'IBM Plex Sans', sans-serif" font-size="68" font-weight="600" letter-spacing="-2.38" fill="#111" textLength="296.92" lengthAdjust="spacingAndGlyphs">unit stride</text>
+  <text class="us-lw us-lw2" x="248.35" y="413.5" dominant-baseline="text-after-edge" font-family="'IBM Plex Mono', monospace" font-size="16" letter-spacing="0.64" fill="#555" textLength="143.27" lengthAdjust="spacingAndGlyphs">unitstride.com</text>
+</svg></div>
+<p class="us-intro">这里放我写的技术文章，目前主要写 AI Infra。</p>
+<h2 class="us-h">专栏</h2><ul class="us-list"><li><a class="us-item us-plain" href="/p/ai-infra/"><span class="us-t">AI Infra</span><span class="us-d">大模型推理与训练背后的系统问题：显存、带宽、算力，以及围绕它们的工程取舍。</span></a></li></ul>
+<h2 class="us-h">最近文章</h2><ul class="us-list"><li><a class="us-item us-plain" href="/p/ai-infra/quantization/basics/"><span class="us-t">量化在推理里省的是什么：容量、带宽和算力</span><span class="us-m">AI Infra · 从推理加速视角看量化 · 第 1 篇 · 2026-10-21</span></a></li></ul>
+</main>
+<footer class="us-foot"><a href="/">unitstride.com</a></footer>
 </body>
 </html>
