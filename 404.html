@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
+<script>(function(){var L="zh",A="",K="us-lang",p=null;try{p=localStorage.getItem(K)}catch(e){}if(p!=="zh"&&p!=="en")p=null;document.addEventListener("click",function(e){var t=e.target,a=t&&t.closest?t.closest("a[data-us-lang]"):null;if(a){try{localStorage.setItem(K,a.getAttribute("data-us-lang"))}catch(e){}}},true);if(!A||/bot|crawl|spider|slurp|facebookexternalhit|lighthouse/i.test(navigator.userAgent||""))return;function zh(){var l=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];if(!l.join(""))return true;for(var i=0;i<l.length;i++)if(/^zh/i.test(l[i]||""))return true;return false}if(p?p!==L:(L==="zh"&&!zh())){document.documentElement.style.visibility="hidden";location.replace(A+location.search+location.hash)}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>页面不存在 · unitstride</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -9,7 +10,7 @@
 <meta name="robots" content="noindex">
 </head>
 <body class="us-page">
-<header class="us-top"><a class="us-brand" href="/" aria-label="unitstride 首页"><svg viewBox="0 0 53 12" aria-hidden="true"><rect x="0" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".14"/><rect x="14" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".34"/><rect x="28" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".62"/><rect x="42" width="11" height="11" y=".5" rx="2" fill="#2b59ff"/></svg><span>unitstride</span></a></header>
+<header class="us-top"><a class="us-brand" href="/" aria-label="unitstride 首页"><svg viewBox="0 0 53 12" aria-hidden="true"><rect x="0" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".14"/><rect x="14" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".34"/><rect x="28" width="11" height="11" y=".5" rx="2" fill="#111" fill-opacity=".62"/><rect x="42" width="11" height="11" y=".5" rx="2" fill="#2b59ff"/></svg><span>unitstride</span></a><nav class="us-lang" aria-label="Language"><span lang="zh-CN" aria-current="true">中文</span><span class="us-sep">/</span><a lang="en" hreflang="en" data-us-lang="en" href="/en/">EN</a></nav></header>
 <main class="us-main">
 <div class="us-code">404</div>
 <h1>页面不存在或已移动</h1>
@@ -19,7 +20,9 @@
 </main>
 <script>
 (function(){
-var PAGES=[{"path": "/", "title": "首页"}, {"path": "/t/ai-infra/", "title": "AI Infra（主题）", "alias": ["/p/ai-infra/"]}, {"path": "/p/1/", "title": "量化基础", "alias": ["/p/ai-infra/quantization/", "/p/ai-infra/quantization/basics/"]}, {"path": "/p/2/", "title": "图解 DeepSeek V4.1 Flash"}];
+var PAGES=[{"path": "/", "title": "首页"}, {"path": "/en/", "title": "Home", "lang": "en"}, {"path": "/t/ai-infra/", "title": "AI Infra（主题）", "alias": ["/p/ai-infra/"]}, {"path": "/p/1/", "title": "量化基础", "alias": ["/p/ai-infra/quantization/", "/p/ai-infra/quantization/basics/"]}, {"path": "/p/2/", "title": "图解 DeepSeek V4.1 Flash"}, {"path": "/en/t/ai-infra/", "title": "AI Infra (topic)", "lang": "en"}, {"path": "/en/p/1/", "title": "Quantization Basics", "lang": "en"}, {"path": "/en/p/2/", "title": "DeepSeek V4.1 Flash, Illustrated", "lang": "en"}],ALT={"lang": "en", "html": "en", "title": "Page not found · unitstride", "body": "<header class=\"us-top\"><a class=\"us-brand\" href=\"/en/\" aria-label=\"unitstride home\"><svg viewBox=\"0 0 53 12\" aria-hidden=\"true\"><rect x=\"0\" width=\"11\" height=\"11\" y=\".5\" rx=\"2\" fill=\"#111\" fill-opacity=\".14\"/><rect x=\"14\" width=\"11\" height=\"11\" y=\".5\" rx=\"2\" fill=\"#111\" fill-opacity=\".34\"/><rect x=\"28\" width=\"11\" height=\"11\" y=\".5\" rx=\"2\" fill=\"#111\" fill-opacity=\".62\"/><rect x=\"42\" width=\"11\" height=\"11\" y=\".5\" rx=\"2\" fill=\"#2b59ff\"/><\/svg><span>unitstride<\/span><\/a><nav class=\"us-lang\" aria-label=\"Language\"><a lang=\"zh-CN\" hreflang=\"zh-CN\" data-us-lang=\"zh\" href=\"/\">中文<\/a><span class=\"us-sep\">/<\/span><span lang=\"en\" aria-current=\"true\">EN<\/span><\/nav><\/header>\n<main class=\"us-main\">\n<div class=\"us-code\">404<\/div>\n<h1>Page not found<\/h1>\n<p class=\"us-lede\">Nothing at <span class=\"us-path\" id=\"us-cur\"><\/span>.<\/p>\n<div id=\"us-sugg-wrap\" hidden><h2 class=\"us-h\">Were you looking for<\/h2><ul class=\"us-list\" id=\"us-sugg\"><\/ul><\/div>\n<a class=\"us-btn\" href=\"/en/\">Back to home<\/a>\n<\/main>\n<footer class=\"us-foot\"><a href=\"/en/\">unitstride.com<\/a><\/footer>\n"};
+var want=/^\/en(\/|$)/i.test(location.pathname)?'en':'zh';
+if(ALT&&ALT.lang===want){document.documentElement.lang=ALT.html;document.title=ALT.title;document.body.innerHTML=ALT.body}
 var cur=location.pathname;try{cur=decodeURIComponent(cur)}catch(e){}
 document.getElementById('us-cur').textContent=cur;
 function norm(p){return p.toLowerCase().replace(/index\.html?$/,'').replace(/\.html?$/,'').replace(/\/+$/,'')}
@@ -34,8 +37,8 @@ function score(path){
   var last=cs.length&&ps.length?sim(cs[cs.length-1],ps[ps.length-1]):0;
   return 0.45*seg+0.35*whole+0.2*last;
 }
-var ranked=PAGES.filter(function(p){return p.path!=='/'}).map(function(p){
-  return {p:p,score:Math.max.apply(null,[p.path].concat(p.alias||[]).map(score))};
+var ranked=PAGES.filter(function(p){return p.path!=='/'&&p.path!=='/en/'}).map(function(p){
+  return {p:p,score:Math.max.apply(null,[p.path].concat(p.alias||[]).map(score))+((p.lang||'zh')===want?0.05:0)};
 }).filter(function(x){return x.score>0.3}).sort(function(a,b){return b.score-a.score||a.p.path.length-b.p.path.length}).slice(0,3);
 if(!ranked.length)return;
 var ul=document.getElementById('us-sugg');

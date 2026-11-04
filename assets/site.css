@@ -102,3 +102,10 @@ a.us-item:hover .us-no{color:var(--us-blue)}
   .us-page h1{font-size:25px}
   .us-h{margin-top:36px}
 }
+
+/* ---------- 语言切换（顶栏右侧；首页无顶栏，单独一行靠右） ---------- */
+.us-lang{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font:13px/1.4 var(--us-sans);white-space:nowrap}
+.us-lang a{color:var(--us-ink3);text-decoration:none}
+.us-lang a:hover{color:var(--us-blue)}
+.us-lang [aria-current]{color:var(--us-ink);font-weight:600}
+.us-hlang{max-width:var(--us-w);margin:0 auto;display:flex;justify-content:flex-end;padding-top:16px}

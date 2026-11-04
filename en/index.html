@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var L="en",A="/",K="us-lang",p=null;try{p=localStorage.getItem(K)}catch(e){}if(p!=="zh"&&p!=="en")p=null;document.addEventListener("click",function(e){var t=e.target,a=t&&t.closest?t.closest("a[data-us-lang]"):null;if(a){try{localStorage.setItem(K,a.getAttribute("data-us-lang"))}catch(e){}}},true);if(!A||/bot|crawl|spider|slurp|facebookexternalhit|lighthouse/i.test(navigator.userAgent||""))return;function zh(){var l=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""];if(!l.join(""))return true;for(var i=0;i<l.length;i++)if(/^zh/i.test(l[i]||""))return true;return false}if(p?p!==L:(L==="zh"&&!zh())){document.documentElement.style.visibility="hidden";location.replace(A+location.search+location.hash)}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unit stride</title>
+<meta name="description" content="Technical articles">
+<link rel="canonical" href="https://unitstride.com/en/">
+<link rel="alternate" hreflang="zh-CN" href="https://unitstride.com/">
+<link rel="alternate" hreflang="en" href="https://unitstride.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://unitstride.com/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="preload" href="/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+.us-lb,.us-lw{transform-box:fill-box;transform-origin:center;animation-fill-mode:backwards}
+.us-lb{animation:us-step 260ms cubic-bezier(.2,.7,.2,1) backwards}
+.us-lb2{animation-delay:110ms}
+.us-lb3{animation-delay:220ms}
+.us-lb4{animation:us-arrive 480ms linear 330ms backwards}
+.us-lw{animation:us-rise 320ms cubic-bezier(.2,.7,.2,1) 600ms backwards}
+.us-lw2{animation-delay:680ms}
+@keyframes us-step{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+@keyframes us-arrive{
+  0%{opacity:0;transform:translateX(-12px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+  54%{opacity:1;transform:translateX(0) scale(1);animation-timing-function:ease-out}
+  77%{transform:translateX(0) scale(1.08);animation-timing-function:ease-in-out}
+  100%{opacity:1;transform:translateX(0) scale(1)}
+}
+@keyframes us-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.us-lb,.us-lw{animation:none}}
+</style>
+</head>
+<body class="us-page us-home">
+<div class="us-hlang"><nav class="us-lang" aria-label="Language"><a lang="zh-CN" hreflang="zh-CN" data-us-lang="zh" href="/">中文</a><span class="us-sep">/</span><span lang="en" aria-current="true">EN</span></nav></div>
+<main class="us-main">
+<div class="us-hero"><svg xmlns="http://www.w3.org/2000/svg" viewBox="160 206 320 222" role="img" aria-label="unit stride">
+  <g transform="translate(202 226.5)">
+    <rect class="us-lb us-lb1" x="0" width="52" height="52" rx="6" fill="#111" fill-opacity="0.14"/>
+    <rect class="us-lb us-lb2" x="61" width="52" height="52" rx="6" fill="#111" fill-opacity="0.34"/>
+    <rect class="us-lb us-lb3" x="122" width="52" height="52" rx="6" fill="#111" fill-opacity="0.62"/>
+    <rect class="us-lb us-lb4" x="183" width="52" height="52" rx="6" fill="#2b59ff"/>
+  </g>
+  <text class="us-lw us-lw1" x="171.53" y="393" dominant-baseline="text-after-edge" font-family="'IBM Plex Sans', sans-serif" font-size="68" font-weight="600" letter-spacing="-2.38" fill="#111" textLength="296.92" lengthAdjust="spacingAndGlyphs">unit stride</text>
+  <text class="us-lw us-lw2" x="322" y="413.5" text-anchor="middle" dominant-baseline="text-after-edge" font-family="'IBM Plex Sans', sans-serif" font-size="16" letter-spacing="1.2" fill="#555">one step a day</text>
+</svg></div>
+<p class="us-intro">Technical articles</p>
+<h2 class="us-h">Topics</h2><ul class="us-list"><li><a class="us-item us-plain" href="/en/t/ai-infra/"><span class="us-t">AI Infra</span><span class="us-d">Notes on LLM inference.</span><span class="us-m">2 articles</span></a></li></ul>
+<h2 class="us-h">Recent articles</h2><ul class="us-list"><li><a class="us-item us-plain" href="/en/p/2/"><span class="us-t">DeepSeek V4.1 Flash, Illustrated</span><span class="us-m">AI Infra · Nov 4, 2026</span></a></li><li><a class="us-item us-plain" href="/en/p/1/"><span class="us-t">Quantization Basics</span><span class="us-m">AI Infra · Oct 22, 2026</span></a></li></ul>
+</main>
+<footer class="us-foot"><a href="/en/">unitstride.com</a></footer>
+</body>
+</html>
